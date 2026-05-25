@@ -6,6 +6,16 @@ terraform {
       name = "demo-eks-cluster"
     }
   }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.33" # EKS access entries require provider >= 5.33
+    }
+    tfe = {
+      source = "hashicorp/tfe"
+    }
+  }
 }
 
 provider "aws" {
@@ -19,5 +29,5 @@ provider "tfe" {
 
 data "tfe_outputs" "subnet" {
   organization = "fcamba-org"
-  workspace = "demo-landing-zone-aws"
+  workspace    = "demo-landing-zone-aws"
 }
