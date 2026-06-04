@@ -11,7 +11,7 @@ resource "aws_eks_node_group" "demo-ng" {
   scaling_config {
     desired_size = var.desired_ng_size
     max_size     = 3
-    min_size     = 1
+    min_size     = 2
   }
 
   update_config {
